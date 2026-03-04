@@ -5,6 +5,12 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - 'Dockerfile'
+      - 'bot.py'
+      - 'requirements.txt'
+      - 'src/**'
+      - '.github/workflows/**'
 
 jobs:
   release:
