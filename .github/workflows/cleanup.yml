@@ -1,0 +1,16 @@
+name: Cleanup Old Images
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # 每周清理
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old container versions
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: 'telegram-saver'
+          package-type: 'container'
+          min-versions-to-keep: 10
