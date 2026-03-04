@@ -1,7 +1,7 @@
-<center> <img src="./assets/logo.png" width="150" height="150"/></center>
-<center> <h1> 📦 Telegram 媒体自动归档 Bot</h1>
+<img src="./assets/logo.png" width="150" height="150"/>
+<h1> 📦 Telegram 媒体自动归档 Bot</h1>
 
-一个自动接收 Telegram 图片 / 视频并分类存储到本地目录的 Docker 容器项目。</center>
+一个自动接收 Telegram 图片 / 视频并分类存储到本地目录的 Docker 容器项目。
 
 支持：
 
@@ -19,11 +19,14 @@
 
 * 已安装 Docker
 * 有 Telegram Bot Token
-* 知道自己的 Chat ID
-
+* 知道自己的 USER ID
+## ⚠️注意识别假冒账号！
+---
 不会创建 Bot？
-去找 👉 `@BotFather` 创建即可。
-
+去TG找 👉 `@BotFather` 创建即可。
+USER ID 找 👉 `@userinfobot` 即可。
+---
+## ⚠️注意识别假冒账号！
 ---
 
 ## 2️⃣ 创建存储目录
@@ -44,7 +47,7 @@ mkdir -p /mnt/media
 docker run -d \
   --name tg-media-bot \
   -e BOT_TOKEN=你的bot_token \
-  -e CHAT_ID=你的chat_id \
+  -e ALLOWED_USER_ID=你的user_id \
   -e BASE_PATH=/data \
   -v /mnt/media:/data \
   --restart unless-stopped \
@@ -87,7 +90,7 @@ docker run -d \
 | 变量名       | 必填 | 说明                 |
 | --------- | -- | ------------------ |
 | BOT_TOKEN | ✅  | Telegram Bot Token |
-| CHAT_ID   | ✅  | 允许接收消息的用户 ID       |
+| ALLOWED_USER_ID   | ✅  | 允许接收消息的用户 ID       |
 | BASE_PATH | ✅  | 容器内存储根路径           |
 
 ---
@@ -152,23 +155,6 @@ docker image prune -a
 
 ---
 
-### 2️⃣ 容器不断重启
-
-检查日志：
-
-```bash
-docker logs tg-media-bot
-```
-
----
-
-### 3️⃣ 如何查看当前版本？
-
-```bash
-docker inspect tg-media-bot | grep Image
-```
-
----
 
 # 🛠 进阶用户
 
