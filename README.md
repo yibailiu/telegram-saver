@@ -1,4 +1,5 @@
-<center><img src="./assets/logo.png" width="150" height="150"/> <h1> 📦 Telegram 媒体自动归档 Bot</h1>
+<center> <img src="./assets/logo.png" width="150" height="150"/></center>
+<center> <h1> 📦 Telegram 媒体自动归档 Bot</h1>
 
 一个自动接收 Telegram 图片 / 视频并分类存储到本地目录的 Docker 容器项目。</center>
 
